@@ -11,7 +11,19 @@ module.exports = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      animation: {
+        'fade-in-bottom': 'fadeInBottom 1s ease-out',
+        'pop-in': 'popIn 0.5s ease-out',
+      },
+      keyframes: {
+        fadeInBottom: {
+          '0%': { opacity: '0', transform: 'translateY(40px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+         }, 
+        },
     },
   },
-  plugins: [],
+  plugins: [
+    require("tailwindcss-animation-delay"),
+  ],
 };
