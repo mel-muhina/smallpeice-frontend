@@ -14,6 +14,7 @@ module.exports = {
       animation: {
         'fade-in-bottom': 'fadeInBottom 1s ease-out',
         'fade-in-bottom-opposite': 'fadeInBottomOpposite 1s ease-out',
+        'fade-in-text': 'fadeInText 0.5s ease-out',
         'pop-in': 'popIn 0.5s ease-out',
       },
       keyframes: {
@@ -24,6 +25,10 @@ module.exports = {
          fadeInBottomOpposite: {
           '0%': { opacity: '0', transform: 'translateY(40px)' },
           '100%': { opacity: '1', transform: 'translateY(0) rotate(6deg)' },
+         }, 
+         fadeInText: {
+          '0%': { opacity: '0', transform: 'translateY(40px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
          }, 
         },
       fontFamily: {
