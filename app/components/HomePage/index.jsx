@@ -1,6 +1,8 @@
+"use client"; 
 import React from 'react'
 import Image from 'next/image'; 
 import Link from 'next/link';
+import { useRouter } from 'next/navigation'; 
 
 
 export default function HomePage() {
@@ -24,9 +26,10 @@ export default function HomePage() {
         "How much does a mechanical engineer earn?"
         </div>
       </div>
-      <button className="sm:w-[70%] md:w-[50%] lg:w-[40%] xl:w-[30%] w-[100%] px-8 py-4 md:px-12 bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xl md:text-xl m-4 font-semibold rounded-xl shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+      <Link href="/pages/userPage" className="flex justify-center items-center w-[100%] m-4"><button className="sm:w-[70%] md:w-[50%] lg:w-[40%] xl:w-[30%] w-[100%] px-8 py-4 md:px-12 bg-gradient-to-r from-blue-500 to-purple-500 text-white text-lg md:text-xl m-4 font-semibold rounded-xl shadow-md hover:bg-purple-500 active:bg-pink-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
         Find your perfect career...
       </button>
+      </Link>
     </>
   )
 }
