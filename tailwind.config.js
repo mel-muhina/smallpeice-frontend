@@ -10,6 +10,7 @@ module.exports = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        orangeYellow: '#ff9d00',
       },
       animation: {
         'fade-in-bottom': 'fadeInBottom 1s ease-out',

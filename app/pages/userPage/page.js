@@ -10,7 +10,7 @@ const [selectedUser, setSelectedUser] = useState(null);
 
 const handleClick = (user) => {
   setSelectedUser(user)
-  console.log("user changed")
+  console.log("user changed", user)
 }
 
   const users = [
@@ -48,18 +48,18 @@ const handleClick = (user) => {
 
   return (
     <>
-    <div className="grid items-center justify-items-center min-h-screen p-8 pb-20 gap-0 font-[family-name:var(--font-geist-sans)] bg-gradient-to-b from-blue-950 to-blue-1000">
+    <div className="grid items-center justify-items-center min-h-100vh p-8 pb-0 gap-0 overflow-auto hide-scrollbar font-[family-name:var(--font-geist-sans)] bg-gradient-to-b from-blue-950 to-blue-1000">
        <div className='px-0 py-2 aspect-w-16 aspect-h-9'>
         <Image src="/smallpeice_logo.png" alt="smallpeice logo" width={60} height={60} className="pd-2"/>
        </div>
-      <h1 className="sm:w-[70%] md:w-[60%] lg:w-[60%] xl:w-[70%] text-5xl xl:text-6xl xl:text-center lg:text-5xl lg:text-center  font-bold text-transparent animate-fade-in-text bg-clip-text bg-gradient-to-l from-blue-500 to-purple-500 px-4 py-4">Who would you like to talk to?</h1>
+      <h1 className="sm:w-[70%] md:w-[50%] lg:w-[50%] xl:w-[50%] text-5xl xl:text-6xl lg:text-5xl md:text-center  font-bold text-transparent animate-fade-in-text bg-clip-text bg-gradient-to-l from-blue-500 to-purple-500 px-4 py-4 ">Who would you like to talk to?</h1>
       
-      <div className='flex flex-wrap justify-around gap-5 '>
+      <div className='grid grid-cols-3 justify-around gap-2 md:pt-4 overflow-auto hide-scrollbar'>
         {users.map((user, index) => 
-        <div className={`flex flex-col gap-2 text-center items-center cursor-pointer`}
+        <div className={`flex flex-col gap-2 text-center items-center cursor-pointer `}
         key={index} 
         onClick={() => handleClick(user)}>
-          <Image src={user.img} width={80} height={80} alt={user.firstName} className='focus:ring-8 focus:ring-red-800 focus:ring-opacity-75 '/>
+          <Image src={user.img} width={80} height={80} alt={user.firstName} className='focus:ring-4 focus:ring-orangeYellow focus:ring-opacity-100 rounded-full' tabIndex={0} />
           <h6>{user.firstName} {user.lastName}</h6> 
           
         </div>)}
