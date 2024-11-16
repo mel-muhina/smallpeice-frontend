@@ -8,8 +8,8 @@ import { useRouter } from 'next/navigation';
 export default function HomePage() {
   return (
     <>
-      <div className='px-0 py-2 aspect-w-16 aspect-h-9'>
-       <Image src="/smallpeice_logo.png" alt="smallpeice logo" width={60} height={60} className="pd-2"/>
+      <div className='px-0 py-0 aspect-w-16 aspect-h-9'>
+       <Image src="/smallpeice-logo_small.png" alt="smallpeice logo" width={60} height={60} className="pd-0"/>
       </div>
       <h1 className="sm:w-[70%] md:w-[60%] lg:w-[60%] xl:w-[70%] text-5xl xl:text-6xl xl:text-center lg:text-5xl lg:text-center  font-bold text-transparent animate-fade-in-text bg-clip-text bg-gradient-to-l from-blue-500 to-purple-500 px-4 py-4">Want to find out which careers in engineering are for you?</h1>
       {/* <div className='px-0 py-2 rounded-md'>
