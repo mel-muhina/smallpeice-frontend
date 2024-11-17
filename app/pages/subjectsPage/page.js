@@ -130,23 +130,24 @@ const handleButton = () => {
 
 
   return (
-    <div className="grid items-center justify-items-center min-h-100vh p-6 pb-0 gap-0 overflow-auto hide-scrollbar font-[family-name:var(--font-geist-sans)] bg-gradient-to-b from-blue-950 to-blue-1000">
+    <div className="flex flex-col items-center justify-items-center min-h-100vh p-6 pb-0 gap-0 overflow-auto hide-scrollbar font-[family-name:var(--font-geist-sans)] bg-gradient-to-b from-blue-950 to-blue-1000">
+
     <div className='px-0 py-2 aspect-w-16 aspect-h-9'>
      <Image src="/smallpeice-logo_small.png" alt="smallpeice logo" width={50} height={50} className="pd-2"/>
     </div>
    {/* <h1 className="sm:w-[70%] md:w-[50%] lg:w-[50%] xl:w-[50%] text-5xl xl:text-6xl lg:text-5xl md:text-center  font-bold text-transparent animate-fade-in-text bg-clip-text bg-gradient-to-l from-blue-500 to-purple-500 px-4 py-4 ">Who would you like to talk to?</h1> */}
    
    <form onSubmit={handleSubmit}>            
-     <div key={question} className='items-center justify-items-center text-center'>
+     <div key={question} className='w-full items-center justify-items-center text-center'>
         <h1 className="sm:w-[80%] md:w-[50%] lg:w-[50%] xl:w-[50%] text-4xl xl:text-6xl lg:text-5xl md:text-center  font-bold text-transparent animate-fade-in-text bg-clip-text bg-gradient-to-l from-blue-500 to-purple-500 px-4 py-4 ">{question[currentIndex]?.question}</h1>
         
-        <div className='m-4 grid grid-cols-3 w-[100%] md:w-[60%] md:grid-cols-3 justify-around md:gap-2'>
+        <div className='m-4 flex-wrap flex w-[100%] md:w-[60%] justify-around md:gap-2'>
         {question[currentIndex]?.option && question[currentIndex].option.length > 0 ? (
             question[currentIndex]?.option.map((option, index) => (
               <button
                  key={index}
                  type="button"
-                 className={` rounded-md m-1 w-22 md:px-4 py-2 md:py-2 text-md md:text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                 className={`flex-grow basis-[30%] rounded-md m-1 w-22 md:px-4 py-2 md:py-2 text-md md:text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                   selectedOptions.includes(option)
                   ? "bg-blue-600 text-white" // Selected button style
                   : "bg-gray-400 text-white" // Unselected button style
@@ -173,5 +174,6 @@ const handleButton = () => {
    </div>
    </form>
 </div>
+
   )
 }
