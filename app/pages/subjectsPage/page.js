@@ -29,7 +29,7 @@ export default function subjectsPage() {
       },
       {
         "id": 3,
-        "question": "What do you feel comfortable at?",
+        "question": "What do you feel comfortable at doing?",
         
       },
       {
@@ -130,7 +130,7 @@ const handleButton = () => {
 
 
   return (
-    <div className="flex flex-col items-center justify-items-center min-h-100vh p-6 pb-0 gap-0 overflow-auto hide-scrollbar font-[family-name:var(--font-geist-sans)] bg-gradient-to-b from-blue-950 to-blue-1000">
+    <div className="flex flex-col items-center justify-items-center min-h-100vh py-8 p-6 pb-0 overflow-auto hide-scrollbar font-[family-name:var(--font-geist-sans)] bg-gradient-to-b from-blue-950 to-blue-1000">
 
     <div className='px-0 py-2 aspect-w-16 aspect-h-9'>
      <Image src="/smallpeice-logo_small.png" alt="smallpeice logo" width={50} height={50} className="pd-2"/>
@@ -139,7 +139,7 @@ const handleButton = () => {
    
    <form onSubmit={handleSubmit}>            
      <div key={question} className='w-full items-center justify-items-center text-center'>
-        <h1 className="sm:w-[80%] md:w-[50%] lg:w-[50%] xl:w-[50%] text-4xl xl:text-6xl lg:text-5xl md:text-center  font-bold text-transparent animate-fade-in-text bg-clip-text bg-gradient-to-l from-blue-500 to-purple-500 px-4 py-4 ">{question[currentIndex]?.question}</h1>
+        <h1 className="sm:w-[80%] md:w-[50%] lg:w-[50%] xl:w-[60%] text-4xl xl:text-6xl lg:text-5xl md:text-center  font-bold text-transparent animate-fade-in-text bg-clip-text bg-gradient-to-l from-blue-500 to-purple-500 px-4 py-4 ">{question[currentIndex]?.question}</h1>
         
         <div className='m-4 flex-wrap flex w-[100%] md:w-[60%] justify-around md:gap-2'>
         {question[currentIndex]?.option && question[currentIndex].option.length > 0 ? (
@@ -158,7 +158,7 @@ const handleButton = () => {
               </button>
             ))
         ) : (
-            <input className="col-span-3 border border-gray-300 rounded-md sm:w-[70%] md:w-[50%] lg:w-[40%] xl:w-[100%] w-[100%] px-8 py-4 md:px-12 focus:outline-none" placeholder='Answer' name={`answer_${question[currentIndex]?.id}`}  value={currentInput} type="text" onChange={handleInput} required />
+            <input className="border border-gray-300 rounded-md text-black sm:w-[70%] md:w-[50%] lg:w-[40%] xl:w-[80%] w-[80%] px-8 py-4 md:px-12 focus:outline-none" placeholder='Answer' name={`answer_${question[currentIndex]?.id}`}  value={currentInput} type="text" onChange={handleInput} required />
             
         )}
         </div>
