@@ -12,6 +12,9 @@ export default function subjectsPage() {
     const [buttonLabel, setButtonLabel] = useState('Beep')
     const [selectedOptions, setSelectedOptions] = useState([]);
     const [selectedOptionsTwo, setSelectedOptionsTwo] = useState([]);
+    const suggestionsOne = ["Fixing a bike", "Building a computer", "Coding"]
+    const suggestionsTwo = ["Climate change", "Cyber attacks", "Energy efficient vehicles"]
+    const [filteredSuggestions, setFilteredSuggestions] = useState([]);
     // const { resultData, setResultData } = useContext(ResultContext);
 
 
@@ -30,11 +33,13 @@ export default function subjectsPage() {
       {
         "id": 3,
         "question": "What do you feel comfortable at doing?",
+        "suggestions": ["Fixing a bike", "Building a computer", "Coding"]
         
       },
       {
         "id": 4,
         "question": "What is a cause or issue you feel strongly about?",
+        "suggestions": ["Climate change", "Cyber attacks", "Energy efficient vehicles"]
         
       },
       {
@@ -128,9 +133,29 @@ const handleButton = () => {
     });
   };
 
+  const handleInputChangeWithSuggestions = (e) => {
+    const value = e.target.value;
+    setCurrentInput(value);
+
+    // Filter suggestions based on input value
+    if (value) {
+      const filtered = suggestionsOne.filter((suggestion) =>
+        suggestion.toLowerCase().includes(value.toLowerCase())
+      );
+      setFilteredSuggestions(filtered);
+    } else {
+      setFilteredSuggestions([]);
+    }
+  };
+
+  const handleSuggestionClick = (suggestion) => {
+    setCurrentInput(suggestion);
+    // setFilteredSuggestions([]); // Clear suggestions on selection
+  };
+
 
   return (
-    <div className="flex flex-col items-center justify-items-center min-h-100vh py-8 p-6 pb-0 overflow-auto hide-scrollbar font-[family-name:var(--font-geist-sans)] bg-gradient-to-b from-blue-950 to-blue-1000">
+    <div className="flex flex-col items-center justify-evenly min-h-screen py-8 p-6 pb-0 overflow-auto hide-scrollbar font-[family-name:var(--font-geist-sans)] bg-gradient-to-b from-blue-950 to-blue-1000">
 
     <div className='px-0 py-2 aspect-w-16 aspect-h-9'>
      <Image src="/smallpeice-logo_small.png" alt="smallpeice logo" width={50} height={50} className="pd-2"/>
@@ -158,8 +183,38 @@ const handleButton = () => {
               </button>
             ))
         ) : (
-            <input className="border border-gray-300 rounded-md text-black sm:w-[70%] md:w-[50%] lg:w-[40%] xl:w-[80%] w-[80%] px-8 py-4 md:px-12 focus:outline-none" placeholder='Answer' name={`answer_${question[currentIndex]?.id}`}  value={currentInput} type="text" onChange={handleInput} required />
+          <div>
+          {question[currentIndex]?.suggestions.map((suggestion, index) => (
+             <button
+                 key={index}
+                 type="button"
+                 className={`flex-grow basis-[30%] rounded-md m-1 w-22 md:px-4 py-2 md:py-2 text-md md:text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                  selectedOptions.includes(suggestion)
+                  ? "bg-blue-600 text-white" // Selected button style
+                  : "bg-gray-400 text-white" // Unselected button style
+                 }`}
+                 onClick={() => handleSuggestionClick(suggestion)}
+              >
+                {suggestion}
+              </button>
+       ) )}
+               
+                {/* <ul className="bg-white border text-black border-gray-300 rounded-md mt-1 w-48 h-32 ">
+                {suggestionsOne.map((suggestion, index) => (
+                  
+                  <li
+                    key={index}
+                    onClick={() => handleSuggestionClick(suggestion)}
+                    className="px-4 py-2 cursor-pointer hover:bg-gray-200"
+                  >
+                    {suggestion}
+                  </li>
+                ))}
+              </ul> */}
+               
+            <input className="border border-gray-300 rounded-md text-black sm:w-[70%] md:w-[50%] lg:w-[40%] xl:w-[80%] w-[80%] px-16 py-4 m-12 md:px-12 focus:outline-none" placeholder='Start typing...' name={`answer_${question[currentIndex]?.id}`}  value={currentInput} type="text" onChange={handleInputChangeWithSuggestions} required />
             
+          </div>
         )}
         </div>
       
