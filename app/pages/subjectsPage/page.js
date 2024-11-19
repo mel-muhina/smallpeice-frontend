@@ -33,13 +33,13 @@ export default function subjectsPage() {
       {
         "id": 3,
         "question": "What do you feel comfortable at doing?",
-        "suggestions": ["Fixing a bike", "Building a computer", "Coding"]
+        "suggestions": ["Fixing a bike", "Building a computer", "Coding",  "Repairing electronics", "Tinkering with gadgets",  "Problem-solving in maths"]
         
       },
       {
         "id": 4,
         "question": "What is a cause or issue you feel strongly about?",
-        "suggestions": ["Climate change", "Cyber attacks", "Energy efficient vehicles"]
+        "suggestions": ["Climate change", "Cyber attacks", "Energy efficient vehicles", "Ethical AI development", "Improving public transport", "Equality in education"]
         
       },
       {
@@ -183,7 +183,7 @@ const handleButton = () => {
               </button>
             ))
         ) : (
-          <div>
+          <div className='flex flex-wrap items-center'>
           {question[currentIndex]?.suggestions.map((suggestion, index) => (
              <button
                  key={index}
