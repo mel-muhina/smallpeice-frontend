@@ -175,7 +175,7 @@ const handleButton = () => {
                  className={`flex-grow basis-[30%] rounded-md m-1 w-22 md:px-4 py-2 md:py-2 text-md md:text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                   selectedOptions.includes(option)
                   ? "bg-blue-600 text-white" // Selected button style
-                  : "bg-gray-400 text-white" // Unselected button style
+                  : "outline outline-gray-500 text-white" // Unselected button style
                  }`}
                  onClick={() => toggleOption(option)}
               >
@@ -183,15 +183,15 @@ const handleButton = () => {
               </button>
             ))
         ) : (
-          <div className='flex flex-wrap items-center'>
+          <div className='flex flex-wrap items-center justify-center md:mt-12'>
           {question[currentIndex]?.suggestions.map((suggestion, index) => (
              <button
                  key={index}
                  type="button"
-                 className={`flex-grow basis-[30%] rounded-md m-1 w-22 md:px-4 py-2 md:py-2 text-md md:text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                 className={`flex-grow basis-[100%] md:basis-[30%] rounded-md m-1 w-22 py-2 md:py-2 text-md md:text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                   selectedOptions.includes(suggestion)
                   ? "bg-blue-600 text-white" // Selected button style
-                  : "bg-gray-400 text-white" // Unselected button style
+                  : "outline outline-gray-500 text-white" // Unselected button style
                  }`}
                  onClick={() => handleSuggestionClick(suggestion)}
               >
@@ -212,7 +212,7 @@ const handleButton = () => {
                 ))}
               </ul> */}
                
-            <input className="border border-gray-300 rounded-md text-black sm:w-[70%] md:w-[50%] lg:w-[40%] xl:w-[80%] w-[80%] px-16 py-4 m-12 md:px-12 focus:outline-none" placeholder='Start typing...' name={`answer_${question[currentIndex]?.id}`}  value={currentInput} type="text" onChange={handleInputChangeWithSuggestions} required />
+            <input className="border border-gray-300 rounded-md text-black sm:w-[70%] md:w-[50%] lg:w-[40%] xl:w-[80%] w-[100%] px-16 py-4 md:mb-6 mt-6 md:px-12 focus:outline-none" placeholder='Start typing...' name={`answer_${question[currentIndex]?.id}`}  value={currentInput} type="text" onChange={handleInputChangeWithSuggestions} required />
             
           </div>
         )}
