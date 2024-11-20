@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useState, useContext, useEffect } from 'react';
 
 export default function subjectsPage() {
+    const router = useRouter();
     const [question, setQuestion] = useState([])
     const [answer, setAnswer] = useState([])
     const [currentIndex, setCurrentIndex] = useState(0)
@@ -75,6 +76,7 @@ export default function subjectsPage() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    router.push('/pages/resultsPage')
     console.log("Selected options", selectedOptions)
   }
 //     try {
@@ -112,10 +114,18 @@ const button = (answer) => {
     }
 }
 
-const handleButton = () => {
-  setCurrentIndex((prevIndex) => prevIndex + 1);
+const handleButton = (e) => {
+  if (currentIndex < 4) {
+    // setCurrentIndex((prevIndex) => prevIndex + 1);
+    handleNext()
+ } else {
+     handleSubmit(e);
+ }
+//   setCurrentIndex((prevIndex) => prevIndex + 1);
+  
   setSelectedOptions([]);
   setCurrentInput("");
+
 }
 
   useEffect(() => {
